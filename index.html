@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Jumping.Ge — студия джампинга в Батуми и Тбилиси</title>
+<meta name="description" content="Демо-версия сайта Jumping.Ge: джампинг, силовые, Zumba и танцы в Батуми и Тбилиси.">
+<meta name="theme-color" content="#24112E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%237B3FC4'/%3E%3Cstop offset='1' stop-color='%23C2187E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='25,6 75,6 98,50 75,94 25,94 2,50' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='46' text-anchor='middle' fill='white' font-family='Arial' font-weight='900'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700;800&family=Kaushan+Script&display=swap" rel="stylesheet">
+<script src="vendor/tailwind.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        plum: { DEFAULT: '#24112E', 900: '#1A0B22', 800: '#2E1640', 700: '#3A1D50' },
+        fuchsia: { DEFAULT: '#C2187E', 400: '#E0459F' },
+        violet: { DEFAULT: '#7B3FC4', 300: '#A97BE6' },
+        lilac: { DEFAULT: '#F3E4F1', 50: '#FBF5FA', 200: '#E8CFE4' },
+        teal: { DEFAULT: '#2EC4C6' },
+        lime: { DEFAULT: '#8DC63F', 300: '#B5E26E' },
+      },
+      fontFamily: {
+        display: ['Unbounded', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        script: ['"Kaushan Script"', 'cursive'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #FBF5FA; color: #24112E; -webkit-font-smoothing: antialiased; }
+  .hex { clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%); }
+  .hex-v { clip-path: polygon(50% 0, 97% 25%, 97% 75%, 50% 100%, 3% 75%, 3% 25%); }
+  .grad { background-image: linear-gradient(120deg, #7B3FC4 0%, #C2187E 100%); }
+  .grad-text { background-image: linear-gradient(100deg, #A97BE6 0%, #E0459F 55%, #2EC4C6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hex-pattern { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23ffffff' stroke-opacity='.09' stroke-width='1.2'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23ffffff' stroke-opacity='.06' stroke-width='1.2'/%3E%3C/svg%3E"); }
+  .hex-pattern-dark { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%237B3FC4' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E"); }
+  @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  .marquee { animation: marquee 32s linear infinite; }
+  @keyframes floaty { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)) } 50% { transform: translateY(-10px) rotate(var(--r,0deg)) } }
+  .floaty { animation: floaty 4.5s ease-in-out infinite; }
+  @keyframes pop { 0% { transform: scale(.94); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+  .pop { animation: pop .28s cubic-bezier(.34,1.56,.64,1) both; }
+  .bounce-hover { transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s; }
+  .bounce-hover:hover { transform: translateY(-6px); }
+  .btn-spring { transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, background-color .2s; }
+  .btn-spring:hover { transform: translateY(-2px) scale(1.02); }
+  .btn-spring:active { transform: translateY(1px) scale(.98); }
+  .reveal { opacity: 0; }
+  .reveal.in { opacity: 1; animation: rise .75s cubic-bezier(.22,1,.36,1) backwards; }
+  @keyframes rise { from { opacity: 0; transform: translateY(28px) } to { opacity: 1; transform: none } }
+  .no-scrollbar::-webkit-scrollbar { display: none; } .no-scrollbar { scrollbar-width: none; }
+  .pulse-line path { stroke-dasharray: 220; stroke-dashoffset: 220; animation: draw 2.4s ease forwards .4s; }
+  @keyframes draw { to { stroke-dashoffset: 0 } }
+  @media (prefers-reduced-motion: reduce) { .marquee, .floaty, .pop { animation: none } .reveal { opacity: 1 } .reveal.in { animation: none } }
+  details > summary { list-style: none; } details > summary::-webkit-details-marker { display: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<noscript>Для просмотра демо включите JavaScript.</noscript>
+<script src="vendor/react.js"></script>
+<script src="vendor/react-dom.js"></script>
+<script>window.react = window.React;</script>
+<script src="vendor/lucide-react.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
